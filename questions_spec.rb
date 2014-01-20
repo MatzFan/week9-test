@@ -101,13 +101,8 @@ describe 'the Friday test :)' do
     expect(n).to eq [1, 2, 3, 1, 2, 3]
   end
 
-<<<<<<< HEAD
   it 'turn_symbol_into_string' do
-    n = turn_symbol_into_string 'foobar'
-=======
-  specify 'turn_symbol_into_string' do
     n = turn_symbol_into_string :foobar
->>>>>>> 35c65099297811bca67e2fc11e9c123ab71f76b8
     expect(n).to eq 'foobar'
   end
 
