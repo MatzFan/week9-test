@@ -29,14 +29,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice,
 def every_possible_pairing_of_students(array)
-  return if array.length == 1
-  a ||= []
-  e = array.pop
-  puts "e = #{e}"
-  pair = [e, every_possible_pairing_of_students(array)]
-  puts "pair = #{pair}"
-  a << pair
-
+  array.combination(2)
 end
 
 # discard the first 3 elements of an array,
@@ -262,10 +255,11 @@ end
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
 def your_birthday_is_on_a_friday_in_the_year(birthday)
-  3.times do
-    year = birthday.year.to_i
-    year += 1
-    puts year
+  year, month, day = birthday.year, birthday.month, birthday.day
+  loop do
+    year = year + 1
+    next_birthday = Time.new(year, month, day)
+    return next_birthday.year if next_birthday.friday?
   end
 end
 
